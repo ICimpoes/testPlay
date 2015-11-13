@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+# /hello?n=
+GET     /hello                      controllers.Application.hello(n: String)
+GET     /products                   controllers.Products.list
+POST    /products                   controllers.Products.save
+GET     /products/new               controllers.Products.newProduct
+#Regex - 13 digits
+GET     /products/$ean<\d{13}>      controllers.Products.show(ean: Long)
+
+GET     /projects                   controllers.Products.allProjects
+GET     /projects/:projCode         controllers.Products.assignmentByProjectCode(projCode: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

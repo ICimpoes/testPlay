@@ -1,0 +1,6 @@
+@()(implicit lang: Lang)
+@import play.api.Play.current
+    <footer>
+        lang = @lang.code
+        user = @current.configuration.getString("environment.user")
+    </footer>
